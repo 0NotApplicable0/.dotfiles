@@ -1,0 +1,3 @@
+# Ignore file in cache
+vim/.cache/*
+zsh/.cache/*

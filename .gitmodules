@@ -4,3 +4,15 @@
 [submodule "zsh/.oh-my-zsh"]
 	path = zsh/.oh-my-zsh
 	url = https://github.com/ohmyzsh/ohmyzsh
+[submodule "zsh/custom/resources/spaceship-prompt"]
+	path = zsh/custom/resources/spaceship-prompt
+	url = https://github.com/denysdovhan/spaceship-prompt
+[submodule "zsh/custom/plugins/zsh-autosuggestions"]
+	path = zsh/custom/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
+[submodule "zsh/custom/plugins/zsh-syntax-highlighting"]
+	path = zsh/custom/plugins/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting
+[submodule "zsh/custom/resources/lambda-zsh-theme"]
+	path = zsh/custom/resources/lambda-zsh-theme
+	url = https://github.com/cdimascio/lambda-zsh-theme.git

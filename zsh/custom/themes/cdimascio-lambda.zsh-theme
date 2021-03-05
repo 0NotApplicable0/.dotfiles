@@ -1,0 +1,1 @@
+../resources/lambda-zsh-theme/cdimascio-lambda.zsh-theme
