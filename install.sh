@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Install script for NotApplicable's .dotfiles! #
 
 # System Check           #
@@ -13,7 +13,10 @@ case "${unameOut}" in
 esac
 echo "\n == User's System: ${machine} == \n"
 
-if [[ $(id -u) -ne 0 ]] ; then echo "Please run as root" ; exit 1 ; fi
+if [[ $EUID -ne 0 ]]; then
+   echo "This script must be run as root" 
+   exit 1
+fi
 
 # Update #
 echo "\n == Updating and upgrading == \n"
