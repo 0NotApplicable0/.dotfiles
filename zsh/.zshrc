@@ -22,7 +22,7 @@ ZSH_THEME="cdimascio-lambda"
 #export HISTFILE="$HOME/.dotfiles/zsh/.cache/.zsh_history"
 #export ZSH_COMPDUMP="$HOME/.dotfiles/zsh/.cache/.zcompdump-${SHORT_HOST}-${ZSH_VERSION}"
 #export ZSH_CACHE_DIR="$HOME/.dotfiles/zsh/.cache/"
-export ZSH_CUSTOM="$HOME/.dotfiles/zsh/custom/"
+export ZSH_CUSTOM="$HOME/.dotfiles/zsh/custom"
 
 ####################
 # Plugin Managment #
@@ -45,7 +45,15 @@ source $ZSH/oh-my-zsh.sh
 function cd {
     builtin cd "$@" && ls -F
 }
+function mk() {
+  mkdir -p "$@" && cd "$@"
+}
 
 ##################
 # Custom Aliases #
 ##################
+alias l="ls -la"       # List in long format, include dotfiles
+alias ld="ls -ld */"   # List in long format, only directories
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."

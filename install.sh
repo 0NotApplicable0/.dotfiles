@@ -14,7 +14,7 @@ case "${unameOut}" in
 esac
 echo "\n == User's System: ${machine} == \n"
 
-if [[ $EUID -ne 0 ]]; then
+if [ $EUID -ne 0 ]; then
    echo "This script must be run as root" 
    exit 1
 fi
@@ -36,6 +36,11 @@ apt-get install build-essential
 apt-get install g++ gdb
 apt-get install clang++-3.8 lldb
 apt-get install gcc-multilib g++-multilib
+
+# Move Theme Files #
+cp zsh/custom/resources/lambda-zsh-theme/cdimascio-lambda.zsh-theme zsh/custom/themes/cdimascio-lambda.zsh-theme
+cp zsh/custom/resources/spaceship-prompt/spaceship.zsh-theme zsh/custom/themes/spaceship.zsh-theme
+
 
 # Create simlinks for dotfiles #
 echo "\n == Creating SimLinks == \n"
