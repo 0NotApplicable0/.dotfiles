@@ -1,4 +1,4 @@
-# NotApplicable's Dotfiles
+# NotApplicable's Dotfiles V1.0.1
 
 ## Before cloning:
 - Make sure you have git installed and configured

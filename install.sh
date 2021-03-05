@@ -1,5 +1,6 @@
-#!/bin/bash
+#!/bin/bash                                     #
 # Install script for NotApplicable's .dotfiles! #
+# VERSION: 1.0.1                                #
 
 # System Check           #
 # Currently Does Nothing #
