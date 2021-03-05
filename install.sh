@@ -1,6 +1,6 @@
-# !/bin/bash                                    #
-# Install script for NotApplicable's .dotfiles! #
-# VERSION: 1.0.1                                #
+#!/bin/bash                                    
+#Install script for NotApplicable's .dotfiles! 
+#VERSION: 1.0.1                                
 
 # System Check           #
 # Currently Does Nothing #
@@ -12,26 +12,27 @@ case "${unameOut}" in
     MINGW*)     machine=MinGw;;
     *)          machine="UNKNOWN:${unameOut}"
 esac
-echo "\n == User's System: ${machine} == \n"
+echo "== User's System: ${machine} =="
 
+# sudo check, to ensure everything installs correctly we need sudo #
 if [ $EUID -ne 0 ]; then
    echo "This script must be run as root" 
    exit 1
 fi
 
 # Update #
-echo "\n == Updating and upgrading == \n"
+echo "== Updating and upgrading =="
 apt-get update
 apt-get upgrade
 
 # Install ZSH #
-echo "\n == Installing ZSH == \n"
+echo "== Installing ZSH =="
 apt-get install zsh
 
 # Install Other Dependencies #
-echo "\n == Installing stow == \n"
+echo "== Installing stow =="
 apt-get install stow
-echo "\n == Installing Build Essentials == \n"
+echo "== Installing Build Essentials =="
 apt-get install build-essential
 apt-get install g++ gdb
 apt-get install clang++-3.8 lldb
@@ -43,7 +44,7 @@ cp zsh/custom/resources/spaceship-prompt/spaceship.zsh-theme zsh/custom/themes/s
 
 
 # Create simlinks for dotfiles #
-echo "\n == Creating SimLinks == \n"
+echo "== Creating SimLinks =="
 sudo stow zsh
 sudo stow vim
 cd ..
@@ -54,12 +55,12 @@ sudo rm config.vim
 read -p "Delete old bashrc files? [Y/n]" delOld
 
 if [ $delOld = 'Y' ]; then
-    echo "\n == Deleting bashrc files == \n"
+    echo "== Deleting bashrc files =="
     sudo rm .bash_history
     sudo rm .bash_logout
     sudo rm .bashrc
 else
-    echo "\n == Skipping deletion of bashrc files == \n"
+    echo "== Skipping deletion of bashrc files =="
 fi
 
 echo "
@@ -67,5 +68,6 @@ echo "
 Additonal notes: 
 \n 1. If you are on WSL you can type 'code' to install vscode-server
 \n 2. After install, run 'chsh -s $(which zsh)' to set ZSH as your default shell
+\n 3. Then reboot your shell to see reflected changes
 =======================================================================================
 "
