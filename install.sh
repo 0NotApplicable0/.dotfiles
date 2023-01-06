@@ -1,4 +1,4 @@
-#!/bin/sh                                    
+#!/bin/bash                                    
 #Install script for NotApplicable's .dotfiles! 
 #VERSION: 2.0.0                                
 
