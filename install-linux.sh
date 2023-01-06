@@ -13,6 +13,7 @@ apt update
 apt upgrade
 apt install wget
 apt install fontconfig
+apt install unzip
 dpkg-reconfigure console-setup
 
 # Install Hack Font #
@@ -41,6 +42,12 @@ export NVM_DIR="$HOME/.nvm"
 nvm install node
 
 # Install Neovim & Dependencies #
+# Neovim latest version prerequisites
+sudo apt install software-properties-common
+sudo add-apt-repository ppa:neovim-ppa/unstable 
+sudo apt update
+
+# Neovim + Packer
 apt install neovim
 npm install -g typescript-language-server typescript
 npm install -g @fsouza/prettierd
