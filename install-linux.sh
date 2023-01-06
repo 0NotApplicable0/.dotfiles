@@ -34,7 +34,7 @@ apt-get install g++ gdb
 apt-get install clang++-3.8 lldb
 apt-get install gcc-multilib g++-multilib
 echo "== Installing Node =="
-apt install node
+apt install nodejs
 
 # Install Neovim & Dependencies #
 apt install neovim
