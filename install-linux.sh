@@ -34,7 +34,11 @@ apt-get install g++ gdb
 apt-get install clang++-3.8 lldb
 apt-get install gcc-multilib g++-multilib
 echo "== Installing Node =="
-apt install nodejs
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+nvm install node
 
 # Install Neovim & Dependencies #
 apt install neovim
