@@ -13,10 +13,10 @@ case "${unameOut}" in
 esac
 echo "== User's System: ${machine} =="
 
-if [ ${machine} = "Mac"] then
+if [ ${machine} = "Mac" ]; then
   . ./install-mac.sh
 fi
 
-if [ ${machine} = "Linux"] then
+if [ ${machine} = "Linux" ]; then
   . ./install-linux.sh
 fi
