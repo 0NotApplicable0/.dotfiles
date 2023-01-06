@@ -49,6 +49,10 @@ Install fisher:
 
 `curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher`
 
+Install theme:
+
+fisher install ilancosman/tide@v5
+
 Install z plugin:
 
 `fisher install jethrokuan/z`
