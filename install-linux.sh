@@ -9,22 +9,33 @@ fi
 
 # Update #
 echo "== Updating and upgrading =="
-apt-get update
-apt-get upgrade
-apt-get install unzip
+apt update
+apt upgrade
+apt install wget
+apt install fontconfig
+dpkg-reconfigure console-setup
 
 # Install Hack Font #
-curl -sL https://github.com/source-foundry/Hack/releases/download/v3.003/Hack-v3.003-ttf.zip
+wget https://github.com/source-foundry/Hack/releases/download/v3.003/Hack-v3.003-ttf.zip
 unzip Hack-v3.003-ttf.zip
-mv Hack-v3.003-ttf /usr/share/fonts/
+mkdir /usr/share/fonts/
+mv ttf/* /usr/share/fonts/
 fc-cache -f -v
 
 # Install Fish & Dependencies #
 echo "== Installing FISH =="
-apt-get install fish
+apt install fish
+fish
 curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 fisher install jethrokuan/z
-apt install exa
+
+# Install Exa From Source #
+EXA_VERSION=$(curl -s "https://api.github.com/repos/ogham/exa/releases/latest" | grep -Po '"tag_name": "v\K[0-9.]+')
+curl -Lo exa.zip "https://github.com/ogham/exa/releases/latest/download/exa-linux-x86_64-v${EXA_VERSION}.zip"
+sudo unzip -q exa.zip bin/exa -d /usr/local
+rm -rf exa.zip
+
+# Install Other Packages #
 apt install peco
 
 # Install Other Dependencies #
