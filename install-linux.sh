@@ -13,6 +13,7 @@ apt update
 apt upgrade
 apt install wget
 apt install fontconfig
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 dpkg-reconfigure console-setup
 
 # Install Hack Font #
@@ -42,7 +43,8 @@ nvm install node
 
 # Install Neovim & Dependencies #
 apt install neovim
-apt install lua-language-server
+brew install lua-language-server
+brew install tree-sitter
 npm install -g typescript-language-server typescript
 npm install -g @fsouza/prettierd
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
