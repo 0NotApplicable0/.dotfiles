@@ -77,6 +77,8 @@ be detailed below.
 - exa
 - z
 - nvm & node
+- zsh
+- Lunarvim
 
 # Installation Steps
 
@@ -91,34 +93,71 @@ be detailed below.
 
 ## Manual review
 
-Once the install scripts have finished most files will be installed.
-Next steps are to install `fisher` a plugin manager for fish, `lua-language-server`
-for use in neovim, `tree-sitter` for use in neovim, and then some
-packer insatlls using `:PackerInstall`. See below...
+Certain installs cannot be automated in the script and will require user
+intervention. See below for those instructions.
 
-### Fisher installation
 
-Install fisher:
+### Fish addons installation
+
+#### Install fisher:
 
 `curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher`
 
-Install theme:
+#### Install theme:
 
-fisher install ilancosman/tide@v5
+`fisher install ilancosman/tide@v5`
 
-Install z plugin:
+#### Install exa plugin:
+
+See installation [instructions](https://the.exa.website/install/linux).
+
+#### Install z plugin:
 
 `fisher install jethrokuan/z`
 
-### Neovim plugins installation
+### NVM and Node installation
 
+#### Run the below commands:
+
+`wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash`
+
+`
+export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+`
+
+`nvm install node`
+
+### Neovim Packer + Plugins installation
+
+#### Install Packer:
+
+`git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim`
+
+Install Node Plugins:
+
+```
+npm install -g typescript-language-server typescript
+npm install -g @fsouza/prettierd
+```
+
+Setup Plugins:
 1. Open neovim with `nvim`
 2. Enter normal mode, type: `:PackerInstall`
 3. Enter normal node, type: `:MasonInstall eslint_d`
 
-## lua-language-server && tree-sitter (Linux Only)
+#### lua-language-server && tree-sitter (Linux Only)
 
 The MacOS install script automatically installs these dependencies
 however on Linux we are unable to do this and require more steps.
 Follow install instructions for [lua-language-server](https://github.com/sumneko/lua-language-server)
 and [tree-sitter](https://github.com/tree-sitter/tree-sitter)
+
+### Lunarvim
+
+`LV_BRANCH='release-1.2/neovim-0.8' bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)`
+
+For specific language installs see [docs](https://www.lunarvim.org/)
+

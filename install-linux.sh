@@ -22,8 +22,9 @@ apt install unzip
 dpkg-reconfigure console-setup
 
 # Add Required Repositories #
-sudo apt-add-repository ppa:fish-shell/release-3
-sudo add-apt-repository ppa:neovim-ppa/unstable 
+apt-add-repository ppa:fish-shell/release-3
+apt-add-repository ppa:neovim-ppa/unstable 
+apt update
 
 # Install Hack Font #
 wget https://github.com/source-foundry/Hack/releases/download/v3.003/Hack-v3.003-ttf.zip
@@ -34,44 +35,26 @@ fc-cache -f -v
 
 # Install Other Dependencies #
 apt install peco
-echo "== Installing stow =="
-apt-get install stow
-echo "== Installing Build Essentials =="
-apt-get install build-essential
-apt-get install g++ gdb
-apt-get install clang++-3.8 lldb
-apt-get install gcc-multilib g++-multilib
-
-# Installing Node & NVM #
-echo "== Installing Node =="
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
-export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-nvm install node
+apt install stow
+apt install build-essential
+apt install g++ gdb
+apt install clang++-3.8 lldb
+apt install gcc-multilib g++-multilib
 
 # Install Neovim & Dependencies #
-sudo apt install software-properties-common
-sudo apt update
+apt install software-properties-common
+apt update
 
-# Neovim + Packer #
+# Neovim #
 apt install neovim
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
-# Install Neovim Plugin Dependencies #
-npm install -g typescript-language-server typescript
-npm install -g @fsouza/prettierd
-
-# Install Exa From Source #
-EXA_VERSION=$(curl -s "https://api.github.com/repos/ogham/exa/releases/latest" | grep -Po '"tag_name": "v\K[0-9.]+')
-curl -Lo exa.zip "https://github.com/ogham/exa/releases/latest/download/exa-linux-x86_64-v${EXA_VERSION}.zip"
-sudo unzip -q exa.zip bin/exa -d /usr/local
-rm -rf exa.zip
-
-# Install Fish & Dependencies #
-echo "== Installing FISH =="
+# Install Fish #
 apt install fish
+
+# Install ZSH #
+apt install zsh
+cp zsh/custom/resources/lambda-zsh-theme/cdimascio-lambda.zsh-theme zsh/custom/themes/cdimascio-lambda.zsh-theme
+cp zsh/custom/resources/spaceship-prompt/spaceship.zsh-theme zsh/custom/themes/spaceship.zsh-theme
 
 echo "== Install Complete =="
 
