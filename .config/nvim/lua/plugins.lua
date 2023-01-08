@@ -56,4 +56,6 @@ packer.startup(function(use)
 
   use 'lewis6991/gitsigns.nvim'
   use 'dinhhuy258/git.nvim' -- For git blame & browse
+  use({ 'projekt0n/github-nvim-theme' })
+  use 'norcalli/nvim-colorizer.lua'
 end)

@@ -161,3 +161,7 @@ and [tree-sitter](https://github.com/tree-sitter/tree-sitter)
 
 For specific language installs see [docs](https://www.lunarvim.org/)
 
+## Other Recommended Installs
+
+- [gitui](https://github.com/extrawurst/gitui)
+- [robostack ros](https://robostack.github.io/)
