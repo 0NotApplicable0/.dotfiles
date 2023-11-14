@@ -11,13 +11,13 @@ brew_install() {
 }
 ##########################
 
-# Sudo Check
+# Sudo Check #
 if [ $EUID == 0 ]; then
    echo "Please do not run this script as root!" 
    exit 1
 fi
 
-# Install Package Manager (BREW)
+# Install Package Manager (BREW) #
 which -s brew
 if [[ $? != 0 ]] ; then
     echo "Homebrew not installed, intalling..."
@@ -27,40 +27,55 @@ else
     brew update
 fi
 
-# Install Packages
+# Install Packages #
 brew_install stow
 brew_install peco
 brew_install neovim
 brew_install exa
 
-# NVM SETUP
+# NVM SETUP #
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
 
-# ZSH SETUP
+# ZSH SETUP #
 brew_install zsh
 mkdir zsh/custom/themes
 cp zsh/custom/resources/lambda-zsh-theme/cdimascio-lambda.zsh-theme zsh/custom/themes/cdimascio-lambda.zsh-theme
 cp zsh/custom/resources/spaceship-prompt/spaceship.zsh-theme zsh/custom/themes/spaceship.zsh-theme
 
-# FISH SETUP
+# FISH SETUP #
 brew_install fish
-brew_install fish
 
-FISH=$(which fish) 
-echo "$FISH \n" >> install-fisher.fish
-curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish >> install-fisher.fish
+FISH=$(which fish)
 
-$FISH fisher.fish install jorgebucaran/fisher
-$FISH fisher.fish install ilancosman/tide@v5
-$FISH fisher.fish install jethrokuan/z
+# Create fisher install script and run in fish
+echo "
+#!$FISH
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+fisher install ilancosman/tide@v5
+fisher install jethrokuan/z
+fisher install jorgebucaran/nvm.fish
+" > install-fisher.fish
+chmod +x install-fisher.fish
+$FISH ./install-fisher.fish
 
-# Stow Configurations
+# NVIM SETUP #
+brew install tree-sitter
+brew install lua-language-server
+
+nvm install node
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+npm install -g typescript-language-server typescript
+npm install -g @fsouza/prettierd
+
+# Stow Configurations #
 stow nvim
 stow fish
 stow zsh
 
-# After Install
+# After Install #
 echo ""
 echo "After install steps:"
 echo " - Add 'nvm' to PATH if its not automatically added with <export NVM_DIR=\"$HOME/.nvm\" [ -s \"$NVM_DIR/nvm.sh\" ] && \. \"$NVM_DIR/nvm.sh\" [ -s \"$NVM_DIR/bash_completion\" ] && \. \"$NVM_DIR/bash_completion\">"
 echo " - Make sure to switch your shell to either ZSH or Fish as they are both installed and configured"
+echo "NVIM After install setps:"
+echo " - Open nvim, enter normal mode, type :PackerInstall and :MasonInstall eslint_d"
