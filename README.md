@@ -18,19 +18,11 @@ You can do this with:
 This repository contains all the basic configuration that I use
 for my different environments.
 
-Currently Include:
-
-- Mac
-- Linux (Ubunutu)
-
-Plans For:
-
-- Windows
-
 ## Tools Installed + Configurations
 
 - neovim
 - fish
+= zsh
 - peco
 - exa
 - z
