@@ -42,7 +42,7 @@ cp zsh/custom/resources/lambda-zsh-theme/cdimascio-lambda.zsh-theme zsh/custom/t
 cp zsh/custom/resources/spaceship-prompt/spaceship.zsh-theme zsh/custom/themes/spaceship.zsh-theme
 
 # OHMYZSH SETUP
-ZSH="$HOME/.dotfiles/zsh/ohmyzsh" sh zsh/ohmyzsh/tools/install.sh --unattended
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # FISH SETUP
 brew_install fish
