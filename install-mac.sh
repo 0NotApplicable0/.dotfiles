@@ -44,7 +44,8 @@ cp zsh/custom/resources/spaceship-prompt/spaceship.zsh-theme zsh/custom/themes/s
 brew_install fish
 
 # Stow Configurations
-stow .config
+stow nvim
+stow fish
 stow zsh
 
 # After Install
