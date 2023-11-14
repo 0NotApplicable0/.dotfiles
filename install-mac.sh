@@ -31,6 +31,7 @@ fi
 brew_install stow
 brew_install peco
 brew_install neovim
+brew_install exa
 
 # NVM SETUP
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
@@ -43,6 +44,9 @@ cp zsh/custom/resources/spaceship-prompt/spaceship.zsh-theme zsh/custom/themes/s
 
 # FISH SETUP
 brew_install fish
+curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+fisher install ilancosman/tide@v5
+fisher install jethrokuan/z
 
 # Stow Configurations
 stow nvim
@@ -50,6 +54,9 @@ stow fish
 stow zsh
 
 # After Install
+source ~/.zshrc
+
+echo "\n\n"
 echo "After install steps:"
 echo " - Add 'nvm' to PATH if its not automatically added with <export NVM_DIR=\"$HOME/.nvm\" [ -s \"$NVM_DIR/nvm.sh\" ] && \. \"$NVM_DIR/nvm.sh\" [ -s \"$NVM_DIR/bash_completion\" ] && \. \"$NVM_DIR/bash_completion\">"
 
