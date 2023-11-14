@@ -44,9 +44,7 @@ cp zsh/custom/resources/spaceship-prompt/spaceship.zsh-theme zsh/custom/themes/s
 
 # FISH SETUP
 brew_install fish
-curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
-fisher install ilancosman/tide@v5
-fisher install jethrokuan/z
+./fish/installer.fish
 
 # Stow Configurations
 stow nvim
@@ -54,9 +52,7 @@ stow fish
 stow zsh
 
 # After Install
-source ~/.zshrc
-
-echo "\n\n"
+echo ""
 echo "After install steps:"
 echo " - Add 'nvm' to PATH if its not automatically added with <export NVM_DIR=\"$HOME/.nvm\" [ -s \"$NVM_DIR/nvm.sh\" ] && \. \"$NVM_DIR/nvm.sh\" [ -s \"$NVM_DIR/bash_completion\" ] && \. \"$NVM_DIR/bash_completion\">"
-
+echo " - Make sure to switch your shell to either ZSH or Fish as they are both installed and configured"
