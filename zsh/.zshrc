@@ -9,7 +9,7 @@ ZSH_DISABLE_COMPFIX=true
 #######################
 # Initalize oh-my-zsh #
 #######################
-export ZSH=$HOME/.oh-my-zsh
+export ZSH=$HOME/.dotfiles/zsh/ohmyzsh
 
 ###################
 # Theme Managment #

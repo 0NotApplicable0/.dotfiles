@@ -41,6 +41,9 @@ mkdir zsh/custom/themes
 cp zsh/custom/resources/lambda-zsh-theme/cdimascio-lambda.zsh-theme zsh/custom/themes/cdimascio-lambda.zsh-theme
 cp zsh/custom/resources/spaceship-prompt/spaceship.zsh-theme zsh/custom/themes/spaceship.zsh-theme
 
+# OHMYZSH SETUP
+ZSH="$HOME/.dotfiles/zsh/ohmyzsh" sh zsh/ohmyzsh/tools/install.sh --unattended
+
 # FISH SETUP
 brew_install fish
 
