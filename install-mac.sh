@@ -44,7 +44,15 @@ cp zsh/custom/resources/spaceship-prompt/spaceship.zsh-theme zsh/custom/themes/s
 
 # FISH SETUP
 brew_install fish
-./fish/installer.fish
+brew_install fish
+
+FISH=$(which fish) 
+echo "$FISH \n" >> install-fisher.fish
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish >> install-fisher.fish
+
+$FISH fisher.fish install jorgebucaran/fisher
+$FISH fisher.fish install ilancosman/tide@v5
+$FISH fisher.fish install jethrokuan/z
 
 # Stow Configurations
 stow nvim
