@@ -1,3 +1,14 @@
+# Helper Functions Setup #
+brew_install() {
+    echo "\nInstalling $1"
+    if brew list $1 &>/dev/null; then
+        echo "${1} is already installed"
+    else
+        brew install $1 && echo "$1 is installed"
+    fi
+}
+##########################
+
 # Sudo Check
 if [ $EUID -ne 1 ]; then
    echo "Please do not run this script as root!" 
@@ -9,20 +20,20 @@ fi
 eval "$(homebrew/bin/brew shellenv)"
 
 # Install Packages
-brew install stow
-brew install peco
-brew install neovim
+brew_install install stow
+brew_install install peco
+brew_install install neovim
 
 # NVM SETUP
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
 
 # ZSH SETUP
-brew install zsh
+brew_install install zsh
 cp zsh/custom/resources/lambda-zsh-theme/cdimascio-lambda.zsh-theme zsh/custom/themes/cdimascio-lambda.zsh-theme
 cp zsh/custom/resources/spaceship-prompt/spaceship.zsh-theme zsh/custom/themes/spaceship.zsh-theme
 
 # FISH SETUP
-brew install fish
+brew_install install fish
 
 # Stow Configurations
 stow .config
